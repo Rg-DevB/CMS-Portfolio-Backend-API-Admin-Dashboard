@@ -7,53 +7,291 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# CMS Portfolio – Backend API & Admin Dashboard
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center">
+  <img src="screenshots/dashboard.png" alt="Filament Admin Dashboard" width="800" />
+</p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-12-red" />
+  <img src="https://img.shields.io/badge/API-REST-blue" />
+  <img src="https://img.shields.io/badge/Filament-Admin-orange" />
+  <img src="https://img.shields.io/badge/Auth-Sanctum-green" />
+  <img src="https://img.shields.io/badge/Status-In%20Progress-yellow" />
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## 📌 Project Overview
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+This project is a **modern portfolio CMS** designed to dynamically manage a personal portfolio (projects, skills, profile, etc.) through a **Laravel REST API** and a **Filament admin dashboard**.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The portfolio frontend is developed **independently** using **React + TypeScript**, and consumes the API via **Axios**.
 
-## Laravel Sponsors
+### Main Goals
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+* Fully decouple **frontend** and **backend**
+* Provide a **professional admin dashboard**
+* Easily update portfolio content without touching frontend code
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🎯 Why This Project?
 
-## Contributing
+This project serves both **technical and professional** purposes.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 👨‍💻 Technical Goals
 
-## Code of Conduct
+* Practice a modern **API-first architecture**
+* Build a **secure REST API** using Laravel Sanctum
+* Work with a **decoupled frontend** (React + TypeScript)
+* Design a **scalable admin panel** with Filament
+* Apply best practices (validation, API resources, separation of concerns)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 💼 Professional Goals
 
-## Security Vulnerabilities
+* Create a **fully manageable portfolio**
+* Showcase a **real-world, production-oriented project**
+* Demonstrate strong skills in **Laravel backend**, **REST APIs**, and **modern architecture**
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+This CMS is designed as an **extensible foundation** that can easily be adapted to other use cases (blog, showcase website, lightweight CMS, etc.).
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🧱 Global Architecture
+
+```
+[ React + TypeScript ]  --->  Axios  --->  [ Laravel API ]  --->  Database
+                                      |
+                                      └── Filament Admin Dashboard
+```
+
+---
+
+## 🛠️ Technologies Used
+
+### 🔧 Backend Stack
+
+<p>
+  <img src="https://skillicons.dev/icons?i=laravel,php,mysql" />
+</p>
+
+* Laravel 12
+* PHP 8+
+* REST API
+* Laravel Sanctum
+* Filament Admin
+* MySQL / PostgreSQL
+
+### 🎨 Frontend Stack (API Consumer)
+
+<p>
+  <img src="https://skillicons.dev/icons?i=react,ts,axios" />
+</p>
+
+* React
+* TypeScript
+* Axios
+
+---
+
+## ✨ Features
+
+### 🔐 Authentication
+
+* Secure API authentication using **Laravel Sanctum**
+* Protected API routes
+* Admin access to Filament dashboard
+
+### 📁 Portfolio Management
+
+* Projects (CRUD)
+* Skills (CRUD)
+* Profile (name, title, description, photo)
+* Entity relationships (projects ↔ skills)
+
+### 📊 Admin Dashboard (Filament)
+
+* Modern UI
+* Full data management
+* Image uploads
+* Roles & permissions (extensible)
+
+---
+
+## 📂 Project Structure
+
+```
+app/
+ ├── Http/
+ │   ├── Controllers/Api
+ │   ├── Resources
+ │   └── Requests
+ ├── Models
+ └── Policies
+
+routes/
+ ├── api.php
+
+filament/
+ ├── Resources
+ └── Pages
+
+database/
+ ├── migrations
+ └── seeders
+```
+
+---
+
+## 🔗 API Routes (Examples)
+
+| Method | Endpoint           | Description    |
+| ------ | ------------------ | -------------- |
+| GET    | /api/profile       | Get profile    |
+| GET    | /api/projects      | List projects  |
+| POST   | /api/projects      | Create project |
+| PUT    | /api/projects/{id} | Update project |
+| DELETE | /api/projects/{id} | Delete project |
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/your-username/cms-portfolio.git
+cd cms-portfolio
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+composer install
+```
+
+### 3️⃣ Environment configuration
+
+```bash
+cp .env.example .env
+```
+
+Configure your database inside `.env`
+
+### 4️⃣ Generate app key
+
+```bash
+php artisan key:generate
+```
+
+### 5️⃣ Run migrations & seeders
+
+```bash
+php artisan migrate --seed
+```
+
+### 6️⃣ Install Filament
+
+```bash
+php artisan filament:install
+```
+
+### 7️⃣ Start the server
+
+```bash
+php artisan serve
+```
+
+---
+
+## 🔑 Admin Dashboard Access
+
+* URL: `http://localhost:8000/admin`
+* Create admin user:
+
+```bash
+php artisan make:filament-user
+```
+
+---
+
+## 📸 Project Preview
+
+> ⚠️ Replace the images below with your own screenshots.
+
+<p align="center">
+  <img src="screenshots/projects.png" width="400" />
+  <img src="screenshots/profile.png" width="400" />
+</p>
+
+---
+
+## 🔒 Security
+
+* API routes protected with `auth:sanctum`
+* Request validation using Form Requests
+* CORS-ready for separated frontend
+
+---
+
+## 🚀 Future Improvements
+
+* Multi-user support
+* Advanced role management
+* API caching
+* Docker setup
+* CI/CD pipeline
+
+---
+
+## 📌 Project Status
+
+🟢 In progress
+
+---
+
+## 🧑‍💻 Git Commit Convention
+
+This project follows a clean and professional **Git commit message convention**:
+
+### Format
+
+```
+<type>: <short description>
+```
+
+### Types
+
+* `feat:` new feature
+* `fix:` bug fix
+* `refactor:` code refactoring
+* `chore:` tooling or config changes
+* `docs:` documentation updates
+* `style:` formatting (no logic changes)
+* `test:` tests
+
+### Examples
+
+```
+feat: initial Laravel API setup with Filament admin
+feat: add projects CRUD API
+fix: fix project image upload bug
+docs: update README documentation
+chore: configure CORS for React frontend
+```
+
+---
+
+## 👤 Author
+
+**BITSANGOU**
+Computer Science Student – Web & Software Development
+Laravel Backend • React Frontend • REST APIs
+
+---
+
+## 📄 License
+
+Personal project – free for inspiration
