@@ -284,12 +284,6 @@ chore: configure CORS for React frontend
 
 ---
 
-## 👤 Author
-
-**BITSANGOU**
-Computer Science Student – Web & Software Development
-Laravel Backend • React Frontend • REST APIs
-
 ---
 
 ## 📄 License
